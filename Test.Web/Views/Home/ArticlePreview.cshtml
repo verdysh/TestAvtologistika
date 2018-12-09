@@ -1,0 +1,13 @@
+﻿@model Test.Services.Articles.Dto.ArticleDto
+
+<div class="card mb-4">
+    <div class="card-body">
+        <h2 class="card-title">@Model.Title</h2>
+        <p class="card-text">@Html.Raw(@Model.Preview)</p>
+
+        @Html.ActionLink("Read More", "Article", "Home", new { area = "", id = @Model.TitleId }, new { @class = "btn btn-primary" })
+    </div>
+    <div class="card-footer text-muted">
+        Posted on @Model.Date
+    </div>
+</div>

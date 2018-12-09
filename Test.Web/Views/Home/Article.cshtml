@@ -1,0 +1,18 @@
+﻿@model Test.Services.Articles.Dto.ArticleDto
+
+@{
+    ViewBag.Title = @Model.Title;
+}
+
+<div class="row">
+    <div class="col-lg-8">
+        <h1 class="mt-4">@Model.Title</h1>
+        <p class="lead">
+            by <a href="#">Qc1 test</a>
+        </p>
+        <hr>
+        <p>Posted on @Model.Date</p>
+        <hr>
+        @Html.Raw(@Model.Body)
+    </div>
+</div>

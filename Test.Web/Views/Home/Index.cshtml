@@ -1,0 +1,29 @@
+﻿@model Test.Services.Articles.Dto.ArticlesPageDto
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h1 class="my-4"></h1>
+        @foreach (var article in @Model.Articles)
+        {
+            Html.RenderPartial("ArticlePreview", (object)article);
+        }
+        <ul class="pagination justify-content-center mb-4">
+            @if (@Model.CurrentPage > 1 && @Model.Pages > 1)
+            {
+                <li class="page-item">
+                    @Html.ActionLink("< Сюда", "Index", new { page = @Model.CurrentPage - 1 }, new { @class = "page-link" })
+                </li>
+            }
+            @if (@Model.CurrentPage < @Model.Pages)
+            {
+                <li class="page-item">
+                    @Html.ActionLink("Туда >", "Index", new { page = @Model.CurrentPage + 1 }, new { @class = "page-link" })
+                </li>
+            }
+        </ul>
+    </div>
+</div>
